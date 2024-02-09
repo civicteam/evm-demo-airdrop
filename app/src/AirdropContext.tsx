@@ -1,5 +1,4 @@
 import React, { createContext, FC, ReactNode, useContext, useEffect, useState } from "react";
-import {useAccount} from "wagmi";
 import {Airdrop, Airdrop__factory} from "./typechain-types";
 import {useWallet} from "./useWallet";
 
