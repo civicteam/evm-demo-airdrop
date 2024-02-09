@@ -1,13 +1,13 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const Lottery = await ethers.getContractFactory("Lottery");
-  const lottery = await Lottery.deploy();
+  const Airdrop = await ethers.getContractFactory("Airdrop");
+  const airdrop = await Airdrop.deploy();
 
-  await lottery.deployed();
+  await airdrop.deployed();
 
   console.log(
-    `Lottery deployed to ${lottery.address}`
+    `Token contract deployed to ${airdrop.address}`
   );
 }
 

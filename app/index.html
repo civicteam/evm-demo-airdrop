@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civic Unique Airdrop Demo</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      // // hack to make sure process.env is available in @civic/common-gateway-react
+      // window.process = {};
+      // // vite does not add a global object, so we need to add it ourselves
+      // window.global ||= window;
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

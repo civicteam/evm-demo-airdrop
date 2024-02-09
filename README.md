@@ -1,12 +1,10 @@
-# Civic Pass EVM Sample Lottery Project
+# Civic Pass EVM Sample Airdrop Project
 
 This project demonstrates the integration of Civic Pass into an Ethereum smart contract.
 
-It is a simple lottery contract that allows users to enter the lottery for free.
+It is a simple airdrop contract that allows users to claim one ERC20 token each.
 
-The contract owner can then draw a winner and pay out the prize.
-
-By adding Civic's Uniqueness Pass to the contract, we can ensure that each user can only enter the lottery once.
+By adding Civic's Uniqueness Pass to the contract, we can ensure that each user can only claim.
 
 ## Getting started
 
@@ -17,7 +15,7 @@ yarn
 ```
 
 Run a local hardhat node:
-(This project uses hardhat-deploy to set up a lottery contract.)
+(This project uses hardhat-deploy to set up an ERC20 token contract.)
 
 ```shell
 yarn local:start
