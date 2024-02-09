@@ -1,7 +1,7 @@
 import React, { createContext, FC, ReactNode, useContext } from "react";
 import {Airdrop__factory} from "./typechain-types";
 import {useWallet} from "./useWallet";
-import {useReadContract, useWriteContract} from "wagmi";
+import {useReadContract, useWaitForTransactionReceipt, useWriteContract} from "wagmi";
 import type {Address} from "abitype";
 import {UseWriteContractReturnType} from "wagmi/src/hooks/useWriteContract.ts";
 
@@ -10,7 +10,8 @@ const contractAddress:Address  = import.meta.env.VITE_CONTRACT_ADDRESS as Addres
 type AirdropContextType = {
   balance: bigint | undefined;
   totalSupply: bigint | undefined;
-  isPending: boolean;
+  isConfirming: boolean;
+  isConfirmed: boolean
   txHash: string | undefined;
   error: UseWriteContractReturnType["error"] | null;
   claim: (...args: any[]) => void;
@@ -18,7 +19,8 @@ type AirdropContextType = {
 export const AirdropContext = createContext<AirdropContextType>({
   balance: undefined,
   totalSupply: undefined,
-  isPending: false,
+  isConfirming: false,
+  isConfirmed: false,
   txHash: undefined,
   error: null,
   claim: () => {}
@@ -40,9 +42,17 @@ export const AirdropProvider: FC<{ children: ReactNode }> = ({ children }) => {
     address: contractAddress,
     abi: Airdrop__factory.abi,
     functionName: "totalSupply",
+    query: {
+      refetchInterval: 3000
+    }
   })
 
-  const { data: txHash, isPending, writeContract, error } = useWriteContract()
+  const { data: txHash, writeContract, error } = useWriteContract()
+
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+      useWaitForTransactionReceipt({
+        hash: txHash,
+      })
 
   const claim = () => {
     writeContract({
@@ -52,7 +62,7 @@ export const AirdropProvider: FC<{ children: ReactNode }> = ({ children }) => {
     });
   }
   return (
-      <AirdropContext.Provider value={{ balance, totalSupply, claim, isPending, txHash, error }}>
+      <AirdropContext.Provider value={{ balance, totalSupply, claim, isConfirming, isConfirmed, txHash, error }}>
         {children}
       </AirdropContext.Provider>
   );
