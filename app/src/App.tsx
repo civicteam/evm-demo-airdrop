@@ -8,17 +8,31 @@ const Dashboard = () => {
     const { balance, totalSupply, claim, isConfirming, txHash, error } = useAirdrop();
     const { gatewayStatus } = useGateway();
 
+    const usersPassIsActive = gatewayStatus === GatewayStatus.ACTIVE;
+
     return (<div id="main">
+
         <Ticket />
         <h1>Claim Airdrop</h1>
+
         <IdentityButton/>
-        {gatewayStatus !== GatewayStatus.ACTIVE && <div>Verify you are a unique person before entering</div>}
-        {!balance && <button disabled={gatewayStatus !== GatewayStatus.ACTIVE}
-                             onClick={claim}>{gatewayStatus !== GatewayStatus.ACTIVE ? "Verify first!" : "Claim"}</button>}
-        {(!!balance || (gatewayStatus !== GatewayStatus.ACTIVE)) &&
+
+        {!usersPassIsActive && <div>Verify you are a unique person before entering</div>}
+
+        {!balance &&
+            <button
+                disabled={!usersPassIsActive}
+                onClick={claim}>{usersPassIsActive ? "Claim" : "Verify first!"}
+            </button>
+        }
+
+        {(!!balance || !usersPassIsActive) &&
             <button onClick={() => claim({gasLimit: 3000000})}>I don't care, try to claim anyway!</button>}
+
         {isConfirming && <p><>Claiming...</>
+
         </p>}
+
         {!!balance && <p><>Congratulations, you have a token!</>
         </p>}
         {txHash && <p><>Transaction: {txHash}</>
