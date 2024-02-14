@@ -353,10 +353,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@civic/common-gateway-react@0.11.7":
-  version "0.11.7"
-  resolved "https://registry.yarnpkg.com/@civic/common-gateway-react/-/common-gateway-react-0.11.7.tgz#ca47d1e0fb38768b3a08c5e26d87c5c932d34c54"
-  integrity sha512-893gs7p16IYMokmicRQKWL4VvY+u5P4/ycBhghSHVjhHDWAFcBlO4jGRoD71+PPp9u+B9ULZiR8wTNWt0vOccg==
+"@civic/common-gateway-react@0.11.8":
+  version "0.11.8"
+  resolved "https://registry.yarnpkg.com/@civic/common-gateway-react/-/common-gateway-react-0.11.8.tgz#c96112594dbf07034deb60746a7c9a65f81f1de4"
+  integrity sha512-MadpQNMsdK9i7M6jp56T3fhAgi0JFx/xB1+yBKVLWm6y2sCMAI7jgPjfHc37W54aP9ypi2v1LwbkC3yODXMh6w==
   dependencies:
     fetch-retry "^5.0.6"
     iframe-resizer-react "^1.1.0"
@@ -364,12 +364,12 @@
     styled-components "^5.3.1"
     uuid "^9.0.1"
 
-"@civic/ethereum-gateway-react@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@civic/ethereum-gateway-react/-/ethereum-gateway-react-1.0.4.tgz#dd7e9a0a09674ced91940ac65103f1fff41ea19b"
-  integrity sha512-1r2ixJSkn0z8SXWozNllVN3txQoAwTIgG18270khLsb3jZsW+GvvZO9hexdFqMqSFLJ7MDf+Q4eqdelx9qUnvg==
+"@civic/ethereum-gateway-react@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@civic/ethereum-gateway-react/-/ethereum-gateway-react-1.0.5.tgz#c300644863ecb62483bb20ddc310630c25bd1d79"
+  integrity sha512-pVGwzVH93B30fmTKYWyuboMmzb+tZnRtqBQ5wyBwCC/i5U8U3tOPm/mpKquXiRUwt2jEm1vMdPlPHZ5fN9GGig==
   dependencies:
-    "@civic/common-gateway-react" "0.11.7"
+    "@civic/common-gateway-react" "0.11.8"
     "@identity.com/prove-ethereum-wallet" "1.1.1"
     ethers "^6.7.1"
     prop-types "^15.8.1"
