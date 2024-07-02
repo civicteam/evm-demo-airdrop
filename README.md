@@ -1,3 +1,8 @@
+# Deprecation Notice
+
+> [!NOTE]
+> The contents of this repo have been moved to [Civic Pass Demos](https://github.com/civicteam/civic-pass-demos)
+
 # Civic Pass EVM Sample Airdrop Project
 
 This project demonstrates the integration of Civic Pass into an Ethereum smart contract.
